@@ -1,0 +1,12 @@
+<!DOCTYPE html>
+<html>
+<body>
+<h1>GameRant</h1>
+    <% if current_user%>
+    <a href="/reviews">View your game reviews.</a><a href="/reviews/new">Submit a new review!</a><a href="/logout">Log Out</a><a href="/users">Users</a>
+    <%else %>
+    <a href="/login">Login</a><a href="/signup">Signup</a>
+    <%end%>
+    <%= yield %>
+</body>
+</html>

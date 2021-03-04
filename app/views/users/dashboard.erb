@@ -1,0 +1,10 @@
+<h1>Hey <%= @user.username %>. Welcome to your GameRant dashboard! </h1>
+<h2>Here is your current list of games:</h2>
+
+
+<ul>
+  <% @games.each do |games| %>
+    <li><a href="/games/<%=games.name%></a></li>
+  <%end%>
+
+</ul>
