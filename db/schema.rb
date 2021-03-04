@@ -14,9 +14,9 @@ ActiveRecord::Schema.define(version: 2021_03_03_210934) do
 
   create_table "games", force: :cascade do |t|
     t.string "name"
-    t.integer "release_date"
-    t.integer "price"
-    t.integer "user_id"
+    t.integer "release_year"
+    t.string "developer"
+    t.string "setting"
   end
 
   create_table "reviews", force: :cascade do |t|
