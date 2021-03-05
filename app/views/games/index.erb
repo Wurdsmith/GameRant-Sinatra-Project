@@ -1,0 +1,23 @@
+<h1>Our list of classic RTS Titles. Review one if you haven't yet already!</h1>
+    <table>
+    <tr>
+      <th>Game</th>
+      <th>Release Year</th>
+      <th>Developer</th>
+      <th>Setting</th>
+      <th>Average Rating</th>
+      <th>Write a Review!</th>
+    </tr>
+    <%@games.each do |game|%>
+  <tr>
+      <td><%=game.name%></td>
+      <td><%=game.release_year%></td>
+      <td><%=game.developer%></td>
+      <td><%=game.setting%></td>
+      <td>Placeholder</td>
+      <td>Placeholder</td>
+  </tr>
+    <%end%>
+    </table>
+   
+

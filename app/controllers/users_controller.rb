@@ -15,7 +15,7 @@ class UsersController < ApplicationController
         else
           @errors = new_user.errors.full_messages
           erb :'/users/signup'
-          binding.pry
+    
         end
       end
 
@@ -31,10 +31,10 @@ class UsersController < ApplicationController
     
         if user && user.authenticate(params[:user][:password])
           session[:user_id] = user.id
-          flash[:message] = "login successful!"
+          flash[:message] = "Login successful!"
           redirect "/users/#{user.id}"
         else
-          @errors = ["Invalid Login"]
+          @errors = ["Whoops. That account doesn't exit. Please try again."]
           erb :'users/login'
         end
       end
@@ -47,7 +47,7 @@ class UsersController < ApplicationController
       get '/users/:id' do
         redirect_if_not_logged_in
           @user = User.find_by(id: params[:id])
-          @games = @user.games
+          @games = Game.all
           erb :'users/dashboard'
       end
 end
