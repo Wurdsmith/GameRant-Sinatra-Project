@@ -28,13 +28,12 @@ class UsersController < ApplicationController
     
       post '/login' do
         user = User.find_by(username: params[:user][:username])
-    
         if user && user.authenticate(params[:user][:password])
           session[:user_id] = user.id
-          flash[:message] = "Login successful!"
+          #flash[:message] = "Login successful!"
           redirect "/users/#{user.id}"
         else
-          @errors = ["Whoops. That account doesn't exit. Please try again."]
+          @errors = ["Whoops. That account doesn't exist. Please try again."]
           erb :'users/login'
         end
       end
