@@ -15,7 +15,6 @@ class UsersController < ApplicationController
         else
           @errors = new_user.errors.full_messages
           erb :'/users/signup'
-    
         end
       end
 

@@ -13,4 +13,15 @@ class ReviewsController < ApplicationController
         erb :'reviews/new'
       end
 
+      post '/reviews' do
+        redirect_if_not_logged_in
+        review = current_user.reviews.create(params[:review])
+        binding.pry
+        if item.valid?
+          redirect "users/dashboard"
+        else
+            flash[:message] = item.errors.full_messages
+            redirect '/items/new'
+        end
+    end
 end
