@@ -18,10 +18,19 @@ class ReviewsController < ApplicationController
         redirect_if_not_logged_in
         review = current_user.reviews.create(params[:review])
         if review.valid?
-          redirect "reviews/:id"
+          redirect "users/#{item.id}"
         else
             flash[:message] = item.errors.full_messages
             redirect '/reviews/new'
         end
     end
+
+    get '/reviews/:id' do
+        redirect_if_not_logged_in
+        set_review
+        if !@review
+          redirect '/reviews'
+        end
+        erb :'reviews/show'
+      end
 end

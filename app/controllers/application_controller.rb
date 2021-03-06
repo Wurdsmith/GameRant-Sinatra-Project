@@ -21,8 +21,8 @@ class ApplicationController < Sinatra::Base
         redirect '/login' unless current_user
     end
 
-    def check_owner(obj)
-      obj && obj.user == current_user
+    def check_owner(review)
+      review && review.user_id == current_user.id #Used .user_id and current_user.id instead of .user and curreent_user in this helper method.
     end
 
     def redirect_if_not_owner(obj)
@@ -32,8 +32,8 @@ class ApplicationController < Sinatra::Base
       end
     end
 
-    def set_game
-      @Game = Game.find_by(id: params[:id])
+    def set_review
+      @review = Review.find_by(id: params[:id])
     end
 
   end

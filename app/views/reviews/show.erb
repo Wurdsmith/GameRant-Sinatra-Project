@@ -1,0 +1,13 @@
+<h1>Review</h1>
+
+<p><%= @review.title %> - <%= @review.date %></p>
+
+
+<% if check_owner(@review) %>
+  <form action="/reviews/<%=@review.id%>" method="post">
+    <input type="hidden" name="_method" value="delete">
+    <input type="submit" value="Delete">
+  </form>
+
+  <a href="/reviews/<%=@review.id%>/edit">Edit this Review</a>
+<%end %>
