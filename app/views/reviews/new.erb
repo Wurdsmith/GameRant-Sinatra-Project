@@ -25,7 +25,7 @@
     <label>Title</label>
     <input type="title" name="review[title]">
     <br><br>
-    <input type="hidden" id="date" name="review[date]" value="CurrentDate">
+    <input type="hidden" id="date" name="review[date]" value="<%=Time.new.strftime '%m/%d/%Y'=%>">
     <br><br>
     <label>Enter your review: </label><br>
     <textarea rows="4" cols="50" name="review[content]"></textarea>
