@@ -1,2 +1,14 @@
 class ReviewsController < ApplicationController
+    
+    get '/reviews' do
+        redirect_if_not_logged_in
+        @reviews = Review.all
+        erb :'reviews/index'
+      end
+    
+      get '/reviews/new' do
+        redirect_if_not_logged_in
+        erb :'reviews/new'
+      end
+
 end

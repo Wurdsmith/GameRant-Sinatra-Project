@@ -1,0 +1,38 @@
+<h1>Write your review!</h1>
+
+<html>
+<head>
+<!-- Font Awesome Icon Library -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<style>
+.checked {
+  color: orange;
+}
+</style>
+</head>
+<body>
+
+<h2>Star Rating</h2>
+<form action="/items" method="post">
+<select class="star-rating" name="review[star_rating]">
+    <option value="">Select a rating(5 Stars)</option>
+    <option value="5">Excellent (4 Stars)</option>
+    <option value="4">Very Good (3 Stars)</option>
+    <option value="3">Average (2 Stars)</option>
+    <option value="2">Poor(1 Star)</option>
+    <option value="1">Terrible</option>
+</select>
+<br><br>
+  <label>Today's Date: </label>
+  <input type="date" name="review[date]">
+  <br><br>
+  <label>Enter your review: </label><br>
+  <textarea rows="4" cols="50" name="review[text]"></textarea>
+  <input type="submit">
+</form>
+
+</body>
+</html>
+
+
+
