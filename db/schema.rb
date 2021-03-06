@@ -20,10 +20,10 @@ ActiveRecord::Schema.define(version: 2021_03_03_210934) do
   end
 
   create_table "reviews", force: :cascade do |t|
-    t.string "title"
-    t.string "content"
-    t.datetime "date"
     t.integer "star_rating"
+    t.string "title"
+    t.datetime "date"
+    t.string "content"
     t.integer "game_id"
     t.integer "user_id"
   end

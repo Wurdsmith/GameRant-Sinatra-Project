@@ -9,6 +9,7 @@ class ReviewsController < ApplicationController
       get '/reviews/:id/new' do
         redirect_if_not_logged_in
         game_hash = Game.find_by(id: params[:id])
+        @game_id = game_hash.id
         @game_name = game_hash.name
         erb :'reviews/new'
       end
@@ -16,12 +17,11 @@ class ReviewsController < ApplicationController
       post '/reviews' do
         redirect_if_not_logged_in
         review = current_user.reviews.create(params[:review])
-        binding.pry
-        if item.valid?
-          redirect "users/dashboard"
+        if review.valid?
+          redirect "reviews/:id"
         else
             flash[:message] = item.errors.full_messages
-            redirect '/items/new'
+            redirect '/reviews/new'
         end
     end
 end

@@ -14,12 +14,12 @@
 
 <form action="/reviews" method="post">
 <select class="star-rating" name="review[star_rating]">
-    <option value="">Select a rating(5 Stars)</option>
-    <option value="5">Excellent (4 Stars)</option>
-    <option value="4">Very Good (3 Stars)</option>
-    <option value="3">Average (2 Stars)</option>
-    <option value="2">Poor(1 Star)</option>
-    <option value="1">Terrible</option>
+    <option value="">Select a rating</option>
+    <option value="5">Excellent (5 Stars)</option>
+    <option value="4">Very Good </option>
+    <option value="3">Average (3 Stars)</option>
+    <option value="2">Poor(2 Stars)</option>
+    <option value="1">Terrible(1 Star)</option>
 </select>
 <br><br>  
     <label>Title</label>
@@ -29,7 +29,8 @@
     <input type="date" name="review[date]">
     <br><br>
     <label>Enter your review: </label><br>
-    <textarea rows="4" cols="50" name="review[text]"></textarea>
+    <textarea rows="4" cols="50" name="review[content]"></textarea>
+    <input type="hidden" id="game_id" name="review[game_id]" value="<%=@game_id%>">
     <input type="submit">
 </form>
 
