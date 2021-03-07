@@ -22,11 +22,11 @@ class ApplicationController < Sinatra::Base
     end
 
     def check_owner(review)
-      review && review.user_id == current_user.id #Used .user_id and current_user.id instead of .user and curreent_user in this helper method.
+      review && review.user_id == current_user.id #Used .user_id and current_user.id instead of .user and current_user in this helper method.
     end
 
-    def redirect_if_not_owner(obj)
-      if !check_owner(obj)
+    def redirect_if_not_owner(user)
+      if !check_owner(user)
         flash[:message] = "Users can only modify their own reviews!"
         redirect '/items'
       end

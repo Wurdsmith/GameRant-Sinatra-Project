@@ -3,6 +3,7 @@ class ReviewsController < ApplicationController
     get '/reviews' do
         redirect_if_not_logged_in
         @reviews = Review.all
+        @users = User.all
         erb :'reviews/index'
       end
     
