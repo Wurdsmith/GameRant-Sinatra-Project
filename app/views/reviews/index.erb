@@ -1,17 +1,17 @@
 <h1>All Reviews</h1>
 <h2>Check out the reviews submitted by other RTG Community members!</h2>
-<ul>
-  <% @reviews.each do |review| %>
-    <li>
-      <a href="/reviews/<%=review.id%>"><%=review.title%></a>
-      <b><%=review.star_rating%> stars</b>
-      <%=review.date.strftime '%m/%d/%Y'%>
-      Submitted by <%@users.each do |reviewer| if reviewer.id == review.user_id %> <%=reviewer.username%>
+  <ul>
+    <% @reviews.each do |review| %>
+      <li>
+        <b>Game Title:</b> <%@games.each do |game| if game.id == review.game_id %> <%=game.name%><%end%>
+        <%end%>
+        <a href="/reviews/<%=review.id%>"><%=review.title%></a>
+        <b><%=review.star_rating%> stars</b>
+        <%=review.date.strftime '%m/%d/%Y'%>
+        Submitted by: <%@users.each do |reviewer| if reviewer.id == review.user_id %> <%=reviewer.username%><%end%>
       <%end%>
-      <%end%>
-      
-    
+    <%end%>
       </li>
-  <%end%>
-
-</ul>
+  </ul>
+    
+      

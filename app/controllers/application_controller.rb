@@ -17,6 +17,19 @@ class ApplicationController < Sinatra::Base
       @user = User.find_by(id: session[:user_id])
     end
 
+    def set_review
+      @review = Review.find_by(id: params[:id])
+    end
+
+    def set_game
+      @game = Game.find_by(id: params[:id])
+    end
+
+    def get_game_by_review
+      @game = Game.find(id: @review.game_id)
+    end
+
+
     def redirect_if_not_logged_in
         redirect '/login' unless current_user
     end
@@ -31,10 +44,5 @@ class ApplicationController < Sinatra::Base
         redirect '/items'
       end
     end
-
-    def set_review
-      @review = Review.find_by(id: params[:id])
-    end
-
   end
 end

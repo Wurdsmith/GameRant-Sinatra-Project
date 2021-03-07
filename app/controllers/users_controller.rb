@@ -44,8 +44,7 @@ class UsersController < ApplicationController
 
       get '/users/:id' do
         redirect_if_not_logged_in
-          @user = User.find_by(id: params[:id])
-          @reviews = @user.reviews
-          erb :'users/dashboard'
+        @reviews = @user.reviews
+        erb :'users/dashboard'
       end
 end

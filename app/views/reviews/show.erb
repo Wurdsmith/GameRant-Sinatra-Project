@@ -1,6 +1,7 @@
-<h1>Review</h1>
+<h2><%= @review.title %> - <%= @review.date.strftime '%m/%d/%Y' %></h2>
+<body>
+<p><%=@review.content%></p>
 
-<p><%= @review.title %> - <%= @review.date.strftime '%m/%d/%Y' %></p>
 
 
 <% if check_owner(@review) %>
@@ -11,3 +12,4 @@
 
   <a href="/reviews/<%=@review.id%>/edit">Edit this Review</a>
 <%end %>
+</body>

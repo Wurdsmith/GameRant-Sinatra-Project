@@ -1,0 +1,12 @@
+<h2>Edit your review for <%=@game.name%></h2>
+
+<form action="/items/<%=@review.id %>" method="post">
+  <input type="hidden" name="_method" value="patch">
+  <label>Title: </label>
+  <input type="text" name="review[title]" value="<%=@review.title%>">
+  <p>
+  <label>Content: </label>
+  <textarea rows="4" cols="50" name="review[content]"><%=@review.content%></textarea>
+  <button type="submit" class="btn btn-primary btn-block btn-large">Submit</button>
+  </p>
+</form>

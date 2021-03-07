@@ -4,14 +4,13 @@ class ReviewsController < ApplicationController
         redirect_if_not_logged_in
         @reviews = Review.all
         @users = User.all
+        @games = Game.all
         erb :'reviews/index'
       end
     
       get '/reviews/:id/new' do
         redirect_if_not_logged_in
-        game_hash = Game.find_by(id: params[:id])
-        @game_id = game_hash.id
-        @game_name = game_hash.name
+        set_game
         erb :'reviews/new'
       end
 
@@ -38,15 +37,16 @@ class ReviewsController < ApplicationController
       
   get '/reviews/:id/edit' do
     redirect_if_not_logged_in
-    set_reviews
-    redirect_if_not_owner(@reviews)
+    set_review
+    get_game_by_review
+    redirect_if_not_owner(@review)
     erb :'reviews/edit'
   end
 
   patch '/reviews/:id' do
     redirect_if_not_logged_in
     set_review
-    if check_owner(@reviews)
+    if check_owner(@review)
       @reviews.update(params[:reviews])
     end
     erb :'reviews/show'
@@ -55,8 +55,8 @@ class ReviewsController < ApplicationController
   delete '/reviews/:id' do
     redirect_if_not_logged_in
     set_review
-    if check_owner(@reviews)
-      @reviews.delete
+    if check_owner(@review)
+      @review.delete
       redirect('/reviews')
     else
       # set up error message
