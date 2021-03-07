@@ -1,13 +1,10 @@
-<h1>Write your review for <%=@game_name%>!</h1>
+<h1>Write your review for <%=@game.name%>!</h1>
 
 <html>
 <head>
 <!-- Font Awesome Icon Library -->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-<style>
-.checked {
-  color: orange;
-}
+<style>.checked {color: orange;}
 </style>
 </head>
 <body>
@@ -16,7 +13,7 @@
 <select class="star-rating" name="review[star_rating]">
     <option value="">Select a rating</option>
     <option value="5">Excellent (5 Stars)</option>
-    <option value="4">Very Good </option>
+    <option value="4">Very Good (4 stars) </option>
     <option value="3">Average (3 Stars)</option>
     <option value="2">Poor(2 Stars)</option>
     <option value="1">Terrible(1 Star)</option>
@@ -29,7 +26,7 @@
     <br><br>
     <label>Enter your review: </label><br>
     <textarea rows="4" cols="50" name="review[content]"></textarea>
-    <input type="hidden" id="game_id" name="review[game_id]" value="<%=@game_id%>">
+    <input type="hidden" id="game_id" name="review[game_id]" value="<%=@game.id%>">
     <button type="submit" class="btn btn-primary btn-block btn-large">Submit Review</button>
 </form>
 </body>

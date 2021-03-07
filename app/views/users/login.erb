@@ -1,4 +1,9 @@
 <h2>Please Log in to Your Real Time Game Reviews Account!</h2>
+    
+    <% @errors  && @errors.each do |m| %>
+    <li><%=m%></li>
+    <%end%>
+    
     <form method="post">
       <input type="text" name="user[username]" placeholder="Username" required="required" />
         <input type="password" name="user[password]" placeholder="Password" required="required" />
