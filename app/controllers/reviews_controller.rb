@@ -33,4 +33,34 @@ class ReviewsController < ApplicationController
         end
         erb :'reviews/show'
       end
+
+      
+  get '/reviews/:id/edit' do
+    redirect_if_not_logged_in
+    set_reviews
+    redirect_if_not_owner(@reviews)
+    erb :'reviews/edit'
+  end
+
+  patch '/reviews/:id' do
+    redirect_if_not_logged_in
+    set_review
+    if check_owner(@reviews)
+      @reviews.update(params[:reviews])
+    end
+    erb :'reviews/show'
+  end
+
+  delete '/reviews/:id' do
+    redirect_if_not_logged_in
+    set_review
+    if check_owner(@reviews)
+      @reviews.delete
+      redirect('/reviews')
+    else
+      # set up error message
+      erb :'reviews/show'
+    end
+  end
+
 end

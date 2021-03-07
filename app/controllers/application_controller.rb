@@ -27,7 +27,7 @@ class ApplicationController < Sinatra::Base
 
     def redirect_if_not_owner(obj)
       if !check_owner(obj)
-        flash[:message] = "Homie don't play that!"
+        flash[:message] = "Users can only modify their own reviews!"
         redirect '/items'
       end
     end

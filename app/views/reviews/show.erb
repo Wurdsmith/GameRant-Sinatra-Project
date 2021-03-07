@@ -1,6 +1,6 @@
 <h1>Review</h1>
 
-<p><%= @review.title %> - <%= @review.date %></p>
+<p><%= @review.title %> - <%= @review.date.strftime '%m/%d/%Y' %></p>
 
 
 <% if check_owner(@review) %>

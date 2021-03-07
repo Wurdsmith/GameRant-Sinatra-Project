@@ -1,7 +1,8 @@
-<h1>Real Time Game Reviews Master List</h1>
+<h1>All Reviews</h1>
+<h2>Check out the reviews submitted by other RTG Community members!</h2>
 <ul>
   <% @reviews.each do |review| %>
-    <li><a href="/reviews/<%=review.id%>"><%=review.title%></a></li>
+    <li><a href="/reviews/<%=review.id%>"><%=review.title%></a>   -   <b><%=review.star_rating%> stars</b>   -   <%=review.date.strftime '%m/%d/%Y'%>   -    Submitted by <%=current_user.username=%></li>
   <%end%>
 
 </ul>
