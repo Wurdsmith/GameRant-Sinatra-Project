@@ -1,9 +1,12 @@
 <!DOCTYPE html>
 <html>
-<style>a {color:orange;}</style> 
+<style>
+    a {color:orange;}
+    body {background-color:#102858;color:white;text-align:center;font-family: Arial, Helvetica, sans-serif;}
+</style> 
 <body 
-    style="background-color:#102858;color:white;text-align:center;font-family: Arial, Helvetica, sans-serif;">  
     <div class="header">
+    <img src="https://u.cubeupload.com/Lanik89/AOE.png" style="width: 55vw; min-width: 330px;" alt="logo" />
         <h3>Real-Time Game Reviews</h3>
             <p><% if current_user%>
                 <a href="/users/<%=current_user.id=%>">Your reviews dashboard</a>    <a href="/games">Browse all games</a>    <a href="/reviews">View all reviews</a>    <a href="/logout">Log Out</a>

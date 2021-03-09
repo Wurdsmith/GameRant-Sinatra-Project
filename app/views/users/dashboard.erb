@@ -1,3 +1,5 @@
+<div class="body">
+<body>
 <h2>Hey <%= @user.username %>. Welcome to Your Real Time Reviews Dashboard! </h2>
 
 <% if @user.reviews.length > 0 %>
@@ -13,9 +15,7 @@
 <%else%>
   <h3>Looks like you haven't written any reviews yet. Browse the <a href="/games">Games List</a> to write a review for a game you've played.</h2>
 <%end%>
-
-
-
-
+</body>
+</div>
 
     
