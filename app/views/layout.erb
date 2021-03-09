@@ -1,12 +1,17 @@
 <!DOCTYPE html>
 <html>
-<body>
-<h3>Real Time Game Reviews</h3>
-    <% if current_user%>
-    <a href="/users/<%=current_user.id=%>">Your reviews dashboard</a>    <a href="/games">Browse all games</a>    <a href="/reviews">View all reviews</a>    <a href="/logout">Log Out</a>
-    <%else %>
-    <a href="/login">Login</a><a href="/signup">Signup</a>
-    <%end%>
-    <%= yield %>
+<style>a {color:orange;}</style> 
+<body 
+    style="background-color:#102858;color:white;text-align:center;font-family: Arial, Helvetica, sans-serif;">  
+    <div class="header">
+        <h3>Real-Time Game Reviews</h3>
+            <p><% if current_user%>
+                <a href="/users/<%=current_user.id=%>">Your reviews dashboard</a>    <a href="/games">Browse all games</a>    <a href="/reviews">View all reviews</a>    <a href="/logout">Log Out</a>
+                <%else%>
+                <a href="/login">Login</a>  <a href="/signup">Signup</a>
+                <%end%>
+                <%= yield %>
+            </p>
+    </div> 
 </body>
 </html>

@@ -1,23 +1,25 @@
 <h2><u>Our list of classic RTS titles. Review one if you haven't yet already!</u></h2>
-    <table>
-    <tr>
-      <th>Game</th>
-      <th>Release Year</th>
-      <th>Developer</th>
-      <th>Setting</th>
-      <th>Average Rating</th>
-      <th>Write a Review!</th>
-    </tr>
+  <style>.center {
+  margin-left: auto;
+  margin-right: auto;
+}</style>
+    <table class="center">
+      <tr>
+        <th>Game</th>
+        <th>Release Year</th>
+        <th>Developer</th>
+        <th>Setting</th>
+        <th>Write a Review!</th>
+      </tr>
     <%@games.each do |game|%>
-  <tr>
-      <td><%=game.name%></td>
-      <td><%=game.release_year%></td>
-      <td><%=game.developer%></td>
-      <td><%=game.setting%></td>
-      <td>Placeholder</td>
-      <td><a href="/reviews/<%=game.id=%>/new">Write a review!</a></td>
-  </tr>
-    <%end%>
-    </table>
+      <tr>
+        <td><%=game.name%></td>
+        <td><%=game.release_year%></td>
+        <td><%=game.developer%></td>
+        <td><%=game.setting%></td>
+        <td><a href="/reviews/<%=game.id=%>/new">Write a review!</a></td>
+      </tr>
+      <%end%>
+      </table>
    
 

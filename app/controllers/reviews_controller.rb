@@ -47,7 +47,7 @@ class ReviewsController < ApplicationController
     redirect_if_not_logged_in
     set_review
     if check_owner(@review)
-      @reviews.update(params[:reviews])
+      @review.update(params[:review])
     end
     erb :'reviews/show'
   end

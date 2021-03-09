@@ -26,7 +26,7 @@ class ApplicationController < Sinatra::Base
     end
 
     def get_game_by_review
-      @game = Game.find(id: @review.game_id)
+      @game = Game.find_by(id: @review.game_id)
     end
 
 
