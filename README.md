@@ -10,11 +10,7 @@ Seed files are provided in the db/seeds.rb folder. Simply run 'rake db:migrate' 
 
 SERVER INITIALIZATION
 
-<<<<<<< HEAD
- Initialize the local server by running 'shotgun' in the terminal and navigating to 'localhost:9393/' in your browser. Use CTRL+C in the terminal at any time to shut down the server.
-=======
 Initialize the local server by running 'shotgun' in the terminal and navigating to 'localhost:9393/' in your browser. Use CTRL+C in the terminal at any time to shut down the server.
->>>>>>> 0f4f0dde30471d67a267fbbdb3a2fe69bc37e7c2
 
 LICENSING
 
@@ -27,16 +23,8 @@ Permission is hereby granted, free of charge, to any person obtaining a copy of 
 The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
 
 THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
-<<<<<<< HEAD
 
 
 AUTHORS
 
 -Andrew Lahr, student at Flatiron Coding Bootcamp
-=======
-
-
-AUTHORS
-
--Andrew Lahr, student at Flatiron Coding Bootcamp
->>>>>>> 0f4f0dde30471d67a267fbbdb3a2fe69bc37e7c2
