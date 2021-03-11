@@ -48,7 +48,6 @@ class ReviewsController < ApplicationController
     redirect_if_not_logged_in
     set_review
     get_reviewer_by_review
-    binding.pry
     if check_owner(@review)
       @review.update(params[:review])#Updates a review object and saves it to the database based on the user's input.
     end
@@ -62,7 +61,6 @@ class ReviewsController < ApplicationController
       @review.delete
       redirect('/reviews')
     else
-      # set up error message
       erb :'reviews/show'
     end
   end
