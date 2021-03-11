@@ -29,7 +29,10 @@ class ApplicationController < Sinatra::Base
       @game = Game.find_by(id: @review.game_id)
     end
 
-
+    def get_reviewer_by_review
+      @reviewer = User.find_by(id: @review.user_id)
+    end
+    
     def redirect_if_not_logged_in
         redirect '/login' unless current_user
     end

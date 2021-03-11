@@ -45,6 +45,7 @@ class UsersController < ApplicationController
       get '/users/:id' do
         redirect_if_not_logged_in
         @reviews = @user.reviews
+        @games = Game.all
         erb :'users/dashboard'
       end
 end

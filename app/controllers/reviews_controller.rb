@@ -28,6 +28,7 @@ class ReviewsController < ApplicationController
     get '/reviews/:id' do
         redirect_if_not_logged_in
         set_review
+        get_reviewer_by_review
         if !@review
           redirect '/reviews'
         end

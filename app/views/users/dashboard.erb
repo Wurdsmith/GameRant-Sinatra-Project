@@ -1,21 +1,25 @@
 <div class="body">
-<body>
-<h2>Hey <%= @user.username %>. Welcome to Your Real Time Reviews Dashboard! </h2>
+  <body>
+    <br>
+      <h2>Hey <%= @user.username %>. Welcome to Your Real Time Reviews Dashboard! </h2>
+  <% if @user.reviews.length > 0 %>
+    <h3><u>Here is your current list of game reviews:</u></h3>
+      <% @reviews.each do |review| %>
+        <li>
+        <p><b>Game: </b><%@games.each do |game| if game.id == review.game_id %> <%=game.name%><%end%><%end%></p>
+        <p><b>Review Title: </b><%= review.title %></p>
+        <p><b>Date Written: </b><%=review.date.strftime '%m/%d/%Y'%></p>
+        <p><style></style><%= review.content %></p>
 
-<% if @user.reviews.length > 0 %>
-<h3>Here is your current list of game reviews:</h3>
-  <% @reviews.each do |review| %>
-    <ul>
-      <li><p><b>Title:</b><%= review.title %></p>
-        <p><b>Date Written:</b><%=review.date.strftime '%m/%d/%Y'%></p>
-        <p><b>Review:</b><%= review.content %></p>
-      </li>
-    </ul>
+    <a href="/reviews/<%=review.id%>/edit">Edit this Review</a>
+        <br>
+        </li>
+      </ul>
+    <%end%>
+  <%else%>
+    <h3>Looks like you haven't written any reviews yet. Browse the <a href="/games">Games List</a> to write a review for a game you've played.</h2>
   <%end%>
-<%else%>
-  <h3>Looks like you haven't written any reviews yet. Browse the <a href="/games">Games List</a> to write a review for a game you've played.</h2>
-<%end%>
-</body>
+  </body>
 </div>
 
     

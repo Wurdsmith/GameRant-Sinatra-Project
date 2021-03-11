@@ -1,5 +1,4 @@
 <h1>Write your review for <%=@game.name%>!</h1>
-
     <style>
     textarea {
         width: 600px;
@@ -14,10 +13,10 @@
     </style>
     <body>
 
+        <form action="/reviews" method="post"
             <label>Title:</label>
             <input type="title" name="review[title]">
             <br><br>
-            <form action="/reviews" method="post">
             <label>Star Rating:</label>
             <select class="star-rating" name="review[star_rating]">
                 <option value="">Select a rating</option>

@@ -1,15 +1,17 @@
-<h2><%= @review.title %> - <%= @review.date.strftime '%m/%d/%Y' %></h2>
+<style>
+p {
+  margin:35px;
+}
+</style>
 <body>
-<p><%=@review.content%></p>
+  <h2><b><%= @review.title %></b></h2>
+  <h4>Submitted by: <b><%=@reviewer.username%></b> on <%=@review.date.strftime '%m/%d/%Y'%></h4>
+
+    <p><%=@review.content%></p>
 
 
 
-<% if check_owner(@review) %>
-  <form action="/reviews/<%=@review.id%>" method="post">
-    <input type="hidden" name="_method" value="delete">
-    <input type="submit" value="Delete">
-  </form>
-
-  <a href="/reviews/<%=@review.id%>/edit">Edit this Review</a>
-<%end %>
+  <% if check_owner(@review) %>
+    <a href="/reviews/<%=@review.id%>/edit">Edit or delete this Review</a>
+  <%end %>
 </body>
