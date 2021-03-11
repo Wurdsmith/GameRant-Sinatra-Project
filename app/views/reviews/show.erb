@@ -1,17 +1,13 @@
 <style>
-p {
-  margin:35px;
-}
+  p { margin:35px;
+  }
 </style>
 <body>
   <h2><b><%= @review.title %></b></h2>
   <h4>Submitted by: <b><%=@reviewer.username%></b> on <%=@review.date.strftime '%m/%d/%Y'%></h4>
-
     <p><%=@review.content%></p>
 
-
-
   <% if check_owner(@review) %>
-    <a href="/reviews/<%=@review.id%>/edit">Edit or delete this Review</a>
+    <a href="/reviews/<%=@review.id%>/edit">Edit or Delete This Review</a>
   <%end %>
 </body>
