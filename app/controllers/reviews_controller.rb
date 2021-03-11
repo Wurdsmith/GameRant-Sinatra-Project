@@ -16,7 +16,7 @@ class ReviewsController < ApplicationController
 
       post '/reviews' do
         redirect_if_not_logged_in
-        review = current_user.reviews.create(params[:review])
+        review = current_user.reviews.create(params[:review]) #Creates a new review object and saves it to the database based on the user's input.
         if review.valid?
           redirect "reviews/#{review.id}"
         else
@@ -25,15 +25,15 @@ class ReviewsController < ApplicationController
         end
     end
 
-    get '/reviews/:id' do
-        redirect_if_not_logged_in
-        set_review
-        get_reviewer_by_review
-        if !@review
-          redirect '/reviews'
-        end
-        erb :'reviews/show'
+  get '/reviews/:id' do
+      redirect_if_not_logged_in
+      set_review
+      get_reviewer_by_review
+      if !@review
+        redirect '/reviews'
       end
+      erb :'reviews/show'
+    end
 
       
   get '/reviews/:id/edit' do
@@ -47,8 +47,10 @@ class ReviewsController < ApplicationController
   patch '/reviews/:id' do
     redirect_if_not_logged_in
     set_review
+    get_reviewer_by_review
+    binding.pry
     if check_owner(@review)
-      @review.update(params[:review])
+      @review.update(params[:review])#Updates a review object and saves it to the database based on the user's input.
     end
     erb :'reviews/show'
   end

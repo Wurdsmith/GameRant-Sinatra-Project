@@ -1,4 +1,5 @@
 <h1>Write your review for <%=@game.name%>!</h1>
+    
     <style>
     textarea {
         width: 600px;
@@ -15,10 +16,9 @@
 
         <form action="/reviews" method="post"
             <label>Title:</label>
-            <input type="title" name="review[title]">
-            <br><br>
+            <input type="title" name="review[title]" required>
             <label>Star Rating:</label>
-            <select class="star-rating" name="review[star_rating]">
+            <select class="star-rating" name="review[star_rating]" required>
                 <option value="">Select a rating</option>
                 <option value="5">Excellent (5 Stars)</option>
                 <option value="4">Very Good (4 stars) </option>
@@ -27,7 +27,7 @@
                 <option value="1">Terrible(1 Star)</option>
             </select>
             <br><br>
-            <textarea rows="4" cols="50" style="align:left;" name="review[content]" placeholder= "Enter your review here..."></textarea>
+            <textarea rows="4" cols="50" style="align:left;" name="review[content]" required placeholder= "Enter your review here..."></textarea>
             <input type="hidden" id="game_id" name="review[game_id]" value="<%=@game.id%>">
             <button type="submit" class="btn btn-primary btn-block btn-large">Submit Review</button>
             <input type="hidden" id="date" name="review[date]" value="<%=Time.new.strftime '%m/%d/%Y'=%>">

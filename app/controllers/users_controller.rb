@@ -13,7 +13,7 @@ class UsersController < ApplicationController
           session[:user_id] = new_user.id
           redirect "/users/#{new_user.id}"
         else
-          @errors = new_user.errors.full_messages
+          @errors = new_user.errors.full_messages #This method is prebuilt and behind the scenes. It flashes an error if the user enters en empty form or if the username has already been taken.
           erb :'/users/signup'
         end
       end
@@ -29,7 +29,6 @@ class UsersController < ApplicationController
         user = User.find_by(username: params[:user][:username])
         if user && user.authenticate(params[:user][:password])
           session[:user_id] = user.id
-          #flash[:message] = "Login successful!"
           redirect "/users/#{user.id}"
         else
           @errors = ["Whoops. That account doesn't exist. Please try again."]

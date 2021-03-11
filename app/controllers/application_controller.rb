@@ -4,14 +4,14 @@ class ApplicationController < Sinatra::Base
     set(:views, 'app/views')
     set :public_folder, 'public'
     enable :sessions
-    set :session_secret, 'secret'
+    set :session_secret, 'secret_reviews'
   end
 
   get ('/') do
     erb :home
   end
   
-  helpers do
+  helpers do #Most of these helper methods clean up the code in our controller/view files by simply letting us call the given method.
 
     def current_user
       @user = User.find_by(id: session[:user_id])
@@ -43,8 +43,7 @@ class ApplicationController < Sinatra::Base
 
     def redirect_if_not_owner(user)
       if !check_owner(user)
-        flash[:message] = "Users can only modify their own reviews!"
-        redirect '/items'
+        redirect '/reviews'
       end
     end
   end
