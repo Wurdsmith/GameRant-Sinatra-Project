@@ -22,7 +22,6 @@ class ReviewsController < ApplicationController
           @review.save
           redirect "reviews/#{@review.id}"
         else
-            flash[:message] = review.errors.full_messages
             redirect '/reviews/new'
         end
     end
