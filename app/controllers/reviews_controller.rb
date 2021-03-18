@@ -16,9 +16,11 @@ class ReviewsController < ApplicationController
 
       post '/reviews' do
         redirect_if_not_logged_in
-        review = current_user.reviews.create(params[:review]) #Creates a new review object and saves it to the database based on the user's input.
-        if review.valid?
-          redirect "reviews/#{review.id}"
+        @review = current_user.reviews.create(params[:review]) #Creates a new review object and saves it to the database based on the user's input.
+        @review.date = Time.new
+        if @review.valid?
+          @review.save
+          redirect "reviews/#{@review.id}"
         else
             flash[:message] = review.errors.full_messages
             redirect '/reviews/new'
@@ -32,6 +34,7 @@ class ReviewsController < ApplicationController
       if !@review
         redirect '/reviews'
       end
+      binding.pry
       erb :'reviews/show'
     end
 

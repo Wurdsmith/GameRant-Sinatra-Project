@@ -30,7 +30,6 @@
             <textarea rows="4" cols="50" style="align:left;" name="review[content]" required placeholder= "Enter your review here..."></textarea>
             <input type="hidden" id="game_id" name="review[game_id]" value="<%=@game.id%>">
             <button type="submit" class="btn btn-primary btn-block btn-large">Submit Review</button>
-            <input type="hidden" id="date" name="review[date]" value="<%=Time.new.strftime '%m/%d/%Y'=%>">
         </form>
     </body>
 </html>
