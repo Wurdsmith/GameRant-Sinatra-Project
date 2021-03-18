@@ -1,7 +1,8 @@
 <body>
   <h2><b><%= @review.title %></b></h2>
-  <h4>Star Rating: <%=@review.star_rating%></h4>
-  <h4>Submitted by: <b><%=@reviewer.username%></b> on <%=@review.date.strftime '%m/%d/%Y'%></h4>
+  <h4><b>Game:</b> <%=@game.name%></h4>
+  <h4><b>Star Rating:</b> <%=@review.star_rating%></h4>
+  <h4><b>Submitted by:</b> <%=@reviewer.username%> on <%=@review.date.strftime '%m/%d/%Y'%></h4>
     <p><%=@review.content%></p>
 
   <% if check_owner(@review) %>
