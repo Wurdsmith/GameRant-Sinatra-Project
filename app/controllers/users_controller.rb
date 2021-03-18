@@ -13,7 +13,7 @@ class UsersController < ApplicationController
           session[:user_id] = new_user.id
           redirect "/users/#{new_user.id}"
         else
-          @errors = new_user.errors.full_messages #This method is prebuilt and behind the scenes. It flashes an error if the user enters en empty form or if the username has already been taken.
+          @errors = new_user.errors.full_messages #This method is prebuilt and behind the scenes. It displays an error (via @errors in the view file) if the user enters en empty form or if the username has already been taken.
           erb :'/users/signup'
         end
       end

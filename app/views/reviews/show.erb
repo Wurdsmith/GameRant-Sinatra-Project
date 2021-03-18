@@ -1,9 +1,6 @@
-<style>
-  p { margin:35px;
-  }
-</style>
 <body>
   <h2><b><%= @review.title %></b></h2>
+  <h4>Star Rating: <%=@review.star_rating%></h4>
   <h4>Submitted by: <b><%=@reviewer.username%></b> on <%=@review.date.strftime '%m/%d/%Y'%></h4>
     <p><%=@review.content%></p>
 

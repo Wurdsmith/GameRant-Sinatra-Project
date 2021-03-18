@@ -33,7 +33,6 @@ class ReviewsController < ApplicationController
       if !@review
         redirect '/reviews'
       end
-      binding.pry
       erb :'reviews/show'
     end
 

@@ -41,8 +41,8 @@ class ApplicationController < Sinatra::Base
       review && review.user_id == current_user.id #Used .user_id and current_user.id instead of .user and current_user in this helper method.
     end
 
-    def redirect_if_not_owner(user)
-      if !check_owner(user)
+    def redirect_if_not_owner(review)
+      if !check_owner(review)
         redirect '/reviews'
       end
     end
