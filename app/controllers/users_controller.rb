@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
     
     get '/signup' do
-        if session[:user_id]
+        if session[:user_id] #If session[:user_id] exists, then we know that the user has already created a session hash by either signing up or logging in.
           redirect "/users/#{session[:user_id]}"
         end
         erb :'users/signup'
@@ -27,7 +27,7 @@ class UsersController < ApplicationController
     
       post '/login' do
         user = User.find_by(username: params[:user][:username])
-        if user && user.authenticate(params[:user][:password])
+        if user && user.authenticate(params[:user][:password]) #Authenticates that the the user's input matches the information stored in the database.
           session[:user_id] = user.id
           redirect "/users/#{user.id}"
         else

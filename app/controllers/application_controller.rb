@@ -42,7 +42,6 @@ class ApplicationController < Sinatra::Base
     end
 
     def redirect_if_not_owner(review)
-      binding.pry
       if !check_owner(review) #Checks whether check_owner returns false, which then makes this value true and redirects the user to /reviews.
         redirect '/reviews'
       end

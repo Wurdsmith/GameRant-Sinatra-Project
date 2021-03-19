@@ -18,7 +18,6 @@ class ReviewsController < ApplicationController
       redirect_if_not_logged_in
       @review = current_user.reviews.create(params[:review]) #Creates a new review object for the current user and saves it to the database based on that user's input.
       @review.date = Time.new
-      binding.pry
       if @review.valid?
           @review.save
           redirect "reviews/#{@review.id}"
@@ -29,7 +28,6 @@ class ReviewsController < ApplicationController
   end
 
 get '/reviews/:id' do
-  binding.pry
     redirect_if_not_logged_in
     set_review
     get_reviewer_by_review
