@@ -4,6 +4,4 @@ class GamesController < ApplicationController
         @games = Game.all
         erb :'games/index'
       end
-
-
 end
