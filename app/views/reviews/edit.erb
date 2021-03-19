@@ -5,7 +5,7 @@
     <label>Title: </label>
   <input type="text" name="review[title]" required value="<%=@review.title%>">
     <label>Star Rating:</label>
-  <select class="star-rating" name="review[star_rating]" required value>
+  <select class="star-rating" name="review[star_rating]" required>
         <option value="<%=@review.star_rating%>">Current Rating: <%=@review.star_rating%></option>
         <option value="5">Excellent (5 Stars)</option>
         <option value="4">Very Good (4 stars) </option>

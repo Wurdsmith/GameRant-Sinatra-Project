@@ -4,7 +4,7 @@ class ApplicationController < Sinatra::Base
     set(:views, 'app/views')
     set :public_folder, 'public'
     enable :sessions
-    set :session_secret, 'secret_reviews'
+    set :session_secret, 'secret_reviews' #In a real-world scenario, this would be much more secure.
   end
 
   get ('/') do
@@ -42,7 +42,8 @@ class ApplicationController < Sinatra::Base
     end
 
     def redirect_if_not_owner(review)
-      if !check_owner(review)
+      binding.pry
+      if !check_owner(review) #Checks whether check_owner returns false, which then makes this value true and redirects the user to /reviews.
         redirect '/reviews'
       end
     end

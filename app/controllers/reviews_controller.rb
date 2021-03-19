@@ -16,20 +16,20 @@ class ReviewsController < ApplicationController
 
     post '/reviews' do
       redirect_if_not_logged_in
-      @review = current_user.reviews.create(params[:review]) #Creates a new review object and saves it to the database based on the user's input.
+      @review = current_user.reviews.create(params[:review]) #Creates a new review object for the current user and saves it to the database based on that user's input.
       @review.date = Time.new
-      get_game_by_review
+      binding.pry
       if @review.valid?
           @review.save
           redirect "reviews/#{@review.id}"
       else
           @errors = @review.errors.full_messages
-          binding.pry
             erb :'/reviews/new'
       end
   end
 
 get '/reviews/:id' do
+  binding.pry
     redirect_if_not_logged_in
     set_review
     get_reviewer_by_review
@@ -45,7 +45,7 @@ get '/reviews/:id/edit' do
   redirect_if_not_logged_in
   set_review
   get_game_by_review
-  redirect_if_not_owner(@review)
+  redirect_if_not_owner(@review) #This ensures that a user cannot edit another users reviews.
   erb :'reviews/edit'
 end
 
